@@ -9,38 +9,42 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Estilos CSS personalizados -->
     <style>   
+      /* Variables CSS */
+      :root {
+        --dark-color: #4ec1d5;
+        --primary-color: #4ec1d5;
+      }
+
       /* Estilos para encabezados */
       h1, h2, h3, h4 {
        font-family: 'Montserrat', sans-serif;
        font-weight: 700;
-       margin-left: 32px;   /* Margen izquierdo */
-       margin-right: 32px;  /* Margen derecho */
-       margin-top: 15px;    /* Margen superior */
+       margin-left: 32px;
+       margin-right: 32px;
+       margin-top: 15px;
       }
 
       /* Estilos para listas y párrafos */
       ul, p {
-        margin-left: 32px;   /* Margen izquierdo */
-        margin-right: 32px;  /* Margen derecho */
-        margin-top: 15px;    /* Margen superior */
+        margin-left: 32px;
+        margin-right: 32px;
+        margin-top: 15px;
       }
 
-      /* Estilos para la marca de navegación */
+      /* Estilos para la barra de navegación */
       .navbar-brand {
         font-weight: 700;
         color: var(--primary-color);
       }
 
-      /* Variables CSS */
-      :root {
-        --dark-color: #4ec1d5;
-      }
-
       /* Estilos para la sección Hero */
       .hero {
-        background-color: #73dcee;
+        background-color: #58c0d2;
         color: white;
         padding: 8rem 2rem 4rem;
         text-align: center;
@@ -68,12 +72,51 @@
         line-height: 1.6;
       }
 
-      /* Estilos para las secciones */
+      /* Estilos para las secciones de contenido */
       section {
-        margin-left: 32px;   /* Margen izquierdo */
-        margin-right: 32px;  /* Margen derecho */
-        margin-top: 20px;    /* Margen superior */
+        margin-left: 32px;
+        margin-right: 32px;
+        margin-top: 20px;
         margin-bottom: 25px;
+      }
+      
+      /* Estilos para el juego del ahorcado */
+      #juego-ahorcado {
+        margin: 20px 32px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      
+      #palabra {
+        font-size: 2rem;
+        letter-spacing: 10px;
+        margin: 20px 0;
+      }
+      
+      #letras {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin: 20px 0;
+      }
+      
+      #letras button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      #mensaje {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 20px 0;
+        min-height: 30px;
+      }
+      
+      #intentos {
+        margin: 10px 0;
       }
     </style>
 </head>
@@ -81,32 +124,30 @@
 <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <!-- Logo -->
-            <img src="https://static.vecteezy.com/system/resources/previews/006/644/839/non_2x/graduation-cap-icon-design-free-vector.jpg" alt="gorro" width="50" height="50">     
-            <a class="navbar-brand" href="#">
-              <i class="fas fa-graduation-cap me-2"></i>Creciendo con palabras
-            </a>
-            
-            <!-- Botón para menú en dispositivos móviles -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="container">   
+          <a class="navbar-brand" href="#">
+            <i class="fas fa-graduation-cap me-2"></i>Creciendo con palabras
+          </a>
+          
+          <!-- Botón para menú en móviles -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <!-- Elementos del menú de navegación -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Inicio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Traductor</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Juego</a>
-                </li>
-              </ul>
-            </div>
+          <!-- Elementos del menú -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Traductor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#juego-ahorcado">Juego</a>
+              </li>
+            </ul>
+          </div>
         </div>
     </nav>
 
@@ -121,7 +162,7 @@
         </div>
     </section>
 
-    <!-- Contenido principal -->
+    <!-- Introducción -->
     <h4>¿Qué significa la palabra idioma?</h4>
     <p>Es una lengua de un pueblo o nación.</p>
 
@@ -133,6 +174,7 @@
         <li><a href="#Diferencia entre idioma y lengua">Diferencia entre idioma y lengua</a></li>
         <li><a href="#Importancia">Importancia</a></li>
         <li><a href="#Ventajas">Ventajas</a></li>
+        <li><a href="#juego-ahorcado">Juego de Ahorcado</a></li>
     </ul> 
     
     <!-- Sección Inicio -->
@@ -185,7 +227,7 @@
         <ul>
             <h6>Lengua</h6>
             <li>Puede incluir varias formas y dialectos.</li>
-            <li>Sistemas de signos fónicos o gráficos con el que se comunica los miembros de una comunidad humana</li>
+            <li>Sistemas de signos fónicos o gráficos con el que se comunica los miembros de una comunidad humana </li>
             <li>Sistema de comunicación verbal propio de una comunidad humana y que cuenta generalmente con escritura.</li>
         </ul>
     </section>
@@ -199,7 +241,7 @@
         </ul>  
 
         <ul>
-            <li>Evolución histórica:Los idiomas cambian a medida pasa el tiempo y tenemos que adaptarnos poco a poco a las nuevas realidades sociales y tecnológicas.</li>
+            <li>Evolución histórica:Los idiomas cambian a medida pasa el tiempo y tenemos que adaptarnos poco a poco a las nuevas realidades sociales y tecnológicas. </li>
         </ul>
 
         <ul>
@@ -222,7 +264,7 @@
                 <li>Mejora la capacidad de resolver problemas.</li>
             </ul>
   
-            <li>Interacción social</li>
+            <li>Interacción social </li>
             <ul>
                 <li>Permite relacionarse con personas de otros países.</li>
                 <li>Facilita la interacción con personas que hablan otro idioma.</li>
@@ -243,24 +285,32 @@
         </ol>
     </section>
     
+    <!-- Sección del Juego del Ahorcado -->
+    <section id="juego-ahorcado">
+        <h2>Juego de ahorcado</h2>
+        <p>Adivina la palabra en Inglés relacionado a los útiles escolares</p>
+        
+        <div id="intentos">Intentos restantes: <span id="intentos-restantes">6</span></div>
+        <div id="palabra"></div>
+        <div id="letras"></div>
+        <div id="mensaje"></div>
+        
+        <button id="reiniciar" class="btn btn-primary">Reiniciar juego</button>
+    </section>
+    
     <!-- Pie de página -->
     <footer>
         <div class="container">
           <div class="row">
-            <!-- Información de la empresa -->
             <div class="col-md-4 mb-4">
               <h4 class="mb-4">Creciendo con palabras</h4>
               <p>Tu proximo gran paso puede empezar con una palabra en otro idioma</p>
             </div>
-            
-            <!-- Información de contacto -->
             <div class="col-md-4 mb-4">
               <h4 class="mb-4">Contacto</h4>
               <p><i class="fas fa-envelope me-2"></i> contacto@creciendoconpalabras.com</p>
               <p><i class="fas fa-phone me-2"></i> (+503) 6537-4634</p>
             </div>
-            
-            <!-- Redes sociales -->
             <div class="col-md-4 mb-4">
               <h4 class="mb-4">Síguenos</h4>
               <div class="social-icons">
@@ -271,14 +321,111 @@
               </div>
             </div>
           </div>
-          
-          <!-- Línea divisoria -->
           <hr class="my-4 bg-light">
-          
-          <!-- Derechos de autor -->
           <div class="text-center">
             <p class="mb-0">© 2025 Creciendo con palabras. Todos los derechos reservados.</p>
           </div>
         </div>
     </footer>
+
+    <!-- Script del juego del ahorcado -->
+    <script>
+        // Variables del juego
+        const palabras = ["pencil", "eraser", "scissors", "ruler", "notebook", "pen", "book"];
+        let palabra = "";
+        let letrasOcultas = [];
+        let errores = 0;
+        const maxErrores = 6;
+        
+        // Elementos del DOM
+        const palabraDiv = document.getElementById("palabra");
+        const letrasDiv = document.getElementById("letras");
+        const mensajeDiv = document.getElementById("mensaje");
+        const intentosSpan = document.getElementById("intentos-restantes");
+        const reiniciarBtn = document.getElementById("reiniciar");
+        
+        /**
+         * Inicializa el juego del ahorcado
+         * Selecciona una palabra aleatoria y prepara la interfaz
+         */
+        function iniciarJuego() {
+            // Seleccionar palabra aleatoria
+            palabra = palabras[Math.floor(Math.random() * palabras.length)];
+            
+            // Crear array de letras ocultas
+            letrasOcultas = Array(palabra.length).fill("_");
+            
+            // Reiniciar contadores
+            errores = 0;
+            intentosSpan.textContent = maxErrores - errores;
+            
+            // Mostrar palabra oculta
+            palabraDiv.textContent = letrasOcultas.join(" ");
+            
+            // Limpiar mensajes
+            mensajeDiv.textContent = "";
+            
+            // Crear botones de letras
+            letrasDiv.innerHTML = "";
+            const letras = "abcdefghijklmnopqrstuvwxyz".split("");
+            
+            for (let letra of letras) {
+                const button = document.createElement("button");
+                button.textContent = letra;
+                button.className = "btn btn-outline-primary";
+                button.onclick = () => adivinarLetra(letra, button);
+                letrasDiv.appendChild(button);
+            }
+            
+            // Habilitar todos los botones
+            const botones = letrasDiv.querySelectorAll("button");
+            botones.forEach(b => b.disabled = false);
+        }
+        
+        function adivinarLetra(letra, button) {
+            button.disabled = true;
+            let acierto = false;
+            
+            // Verificar si la letra está en la palabra
+            for (let i = 0; i < palabra.length; i++) {
+                if (palabra[i] === letra) {
+                    letrasOcultas[i] = letra;
+                    acierto = true;
+                }
+            }
+            
+            // Actualizar la palabra mostrada
+            palabraDiv.textContent = letrasOcultas.join(" ");
+            
+            if (!acierto) {
+                errores++;
+                intentosSpan.textContent = maxErrores - errores;
+                button.className = "btn btn-danger";
+            } else {
+                button.className = "btn btn-success";
+            }
+            
+            // Verificar si el jugador perdió
+            if (errores >= maxErrores) {
+                mensajeDiv.textContent = `¡Perdiste! La palabra era: ${palabra}`;
+                letrasDiv.querySelectorAll("button").forEach(b => b.disabled = true);
+            }
+            
+            // Verificar si el jugador ganó
+            if (!letrasOcultas.includes("_")) {
+                mensajeDiv.textContent = "¡Felicidades! Has adivinado la palabra.";
+                letrasDiv.querySelectorAll("button").forEach(b => b.disabled = true);
+            }
+        }
+        
+        // Evento para reiniciar el juego
+        reiniciarBtn.addEventListener("click", iniciarJuego);
+        
+        // Iniciar el juego al cargar la página
+        window.addEventListener("DOMContentLoaded", iniciarJuego);
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous"></script>
+</body>
 </html>
