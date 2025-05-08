@@ -1,43 +1,117 @@
 <!DOCTYPE html>
 <html lang="Es">
 <head>
+    <!-- Metadatos básicos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creciendo con palabras</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    
+    <!-- Estilos CSS personalizados -->
+    <style>   
+      /* Estilos para encabezados */
+      h1, h2, h3, h4 {
+       font-family: 'Montserrat', sans-serif;
+       font-weight: 700;
+       margin-left: 32px;   /* Margen izquierdo */
+       margin-right: 32px;  /* Margen derecho */
+       margin-top: 15px;    /* Margen superior */
+      }
+
+      /* Estilos para listas y párrafos */
+      ul, p {
+        margin-left: 32px;   /* Margen izquierdo */
+        margin-right: 32px;  /* Margen derecho */
+        margin-top: 15px;    /* Margen superior */
+      }
+
+      /* Estilos para la marca de navegación */
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      /* Variables CSS */
+      :root {
+        --dark-color: #4ec1d5;
+      }
+
+      /* Estilos para la sección Hero */
+      .hero {
+        background-color: #73dcee;
+        color: white;
+        padding: 8rem 2rem 4rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Estilos para el pie de página */
+      footer {
+        background-color: var(--dark-color);
+        color: #060606;
+        padding: 3rem 0;
+        margin-top: 5rem;
+      }
+
+      /* Estilos generales del cuerpo */
+      body {
+        font-size: 15px;     
+        font-family: Sans-serif;
+        justify-content: center;
+        color:#060606;
+        line-height: 1.6;
+      }
+
+      /* Estilos para las secciones */
+      section {
+        margin-left: 32px;   /* Margen izquierdo */
+        margin-right: 32px;  /* Margen derecho */
+        margin-top: 20px;    /* Margen superior */
+        margin-bottom: 25px;
+      }
+    </style>
 </head>
 
 <body>
+    <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <img src ="https://static.vecteezy.com/system/resources/previews/006/644/839/non_2x/graduation-cap-icon-design-free-vector.jpg" alt="gorro" width="50" height="50">     
-          <a class="navbar-brand" href="#">
-            <i class="fas fa-graduation-cap me-2"></i>Creciendo con palabras
-          </a>
-          
+            <!-- Logo -->
+            <img src="https://static.vecteezy.com/system/resources/previews/006/644/839/non_2x/graduation-cap-icon-design-free-vector.jpg" alt="gorro" width="50" height="50">     
+            <a class="navbar-brand" href="#">
+              <i class="fas fa-graduation-cap me-2"></i>Creciendo con palabras
+            </a>
+            
+            <!-- Botón para menú en dispositivos móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Inicio</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">Traductor</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">Juego</a>
-              </li>
-            </ul>
-          </div>
+            <!-- Elementos del menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Traductor</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Juego</a>
+                </li>
+              </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <section class="hero">
+    <!-- Sección Hero (cabecera principal) -->
+    <section class="hero">
         <div class="container text-center">
           <h1 class="display-4 mb-4">Creciendo con palabras</h1>
           <p class="lead mb-5">Encuentra la importancia de los idiomas</p>
@@ -45,11 +119,13 @@
             <i class="fas fa-search"></i>
           </div>
         </div>
-      </section>
+    </section>
 
+    <!-- Contenido principal -->
     <h4>¿Qué significa la palabra idioma?</h4>
-    <p> Es una lengua de un pueblo o nación.</p>
+    <p>Es una lengua de un pueblo o nación.</p>
 
+    <!-- Menú de navegación interno -->
     <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#¿Quesonlosidiomas?">¿Qué son los idiomas?</a></li>
@@ -59,16 +135,19 @@
         <li><a href="#Ventajas">Ventajas</a></li>
     </ul> 
     
+    <!-- Sección Inicio -->
     <section id="inicio">
         <h1>Inicio</h1>
         <p>Bienvenidos a creciendo con palabras. En esta pagina aprenderas que son los idiomas, porque son importantes, que tipos existen y como puedes comenzar a estudiarlos.</p>
     </section>
 
+    <!-- Sección ¿Qué son los idiomas? -->
     <section id="¿Que son los idiomas?">
         <h2>¿Qué son los idiomas?</h2>
         <p>Los idiomas son sistemas de comunicación que utilizan los seres humanos para expresar ideas, pasamientos y emociones. Existen miles de lenguas en el mundo, como el español, ingles, francés, chino, entre otros. Los idiomas reflejan de algún modo su historia cultural. Es decir, esto permite la comunicación y conocimientos de otras culturas porque a través del lenguaje, las sociedades expresan su identidad y se construyen historias. .Además, aprender idiomas mejora la memoria, la concentración y abre mucha oportunidades académicas y laborales. El idioma es un pilar fundamental de la humanidades.</p>
     </section>
 
+    <!-- Sección Tipos de idiomas -->
     <section id="Tipos de idiomas">
         <h2>Tipos de idiomas</h2>
         <p>Los idiomas se pueden clasificar en varios grupos:</p>
@@ -94,6 +173,7 @@
         </ul>
     </section>
 
+    <!-- Sección Diferencia entre idioma y lengua -->
     <section id="Diferencia ente idioma y lengua">
         <h2>Diferencia entre idioma y lengua</h2>
         <ul>
@@ -105,12 +185,13 @@
         <ul>
             <h6>Lengua</h6>
             <li>Puede incluir varias formas y dialectos.</li>
-            <li>Sistemas de signos fónicos o gráficos con el que se comunica los miembros de una comunidad humana </li>
+            <li>Sistemas de signos fónicos o gráficos con el que se comunica los miembros de una comunidad humana</li>
             <li>Sistema de comunicación verbal propio de una comunidad humana y que cuenta generalmente con escritura.</li>
         </ul>
-      </section>
+    </section>
 
-      <section id="Importancia">
+    <!-- Sección Importancia -->
+    <section id="Importancia">
         <h2>Importancia</h2>
         <p>Aprender idiomas tiene muchos beneficios. Te permite comunicarte con personas de otros países, conocer nuevas culturas, mejorar tu memoria.</p>
         <ul>
@@ -118,7 +199,7 @@
         </ul>  
 
         <ul>
-            <li>Evolución histórica:Los idiomas cambian a medida pasa el tiempo y tenemos que adaptarnos poco a poco a las nuevas realidades sociales y tecnológicas. </li>
+            <li>Evolución histórica:Los idiomas cambian a medida pasa el tiempo y tenemos que adaptarnos poco a poco a las nuevas realidades sociales y tecnológicas.</li>
         </ul>
 
         <ul>
@@ -130,6 +211,7 @@
         </ul>
     </section>
 
+    <!-- Sección Ventajas -->
     <section id="Ventajas">
         <h2>Ventajas</h2>
         <ol>
@@ -140,7 +222,7 @@
                 <li>Mejora la capacidad de resolver problemas.</li>
             </ul>
   
-            <li>Interacción social </li>
+            <li>Interacción social</li>
             <ul>
                 <li>Permite relacionarse con personas de otros países.</li>
                 <li>Facilita la interacción con personas que hablan otro idioma.</li>
@@ -161,18 +243,24 @@
         </ol>
     </section>
     
+    <!-- Pie de página -->
     <footer>
         <div class="container">
           <div class="row">
+            <!-- Información de la empresa -->
             <div class="col-md-4 mb-4">
               <h4 class="mb-4">Creciendo con palabras</h4>
               <p>Tu proximo gran paso puede empezar con una palabra en otro idioma</p>
             </div>
+            
+            <!-- Información de contacto -->
             <div class="col-md-4 mb-4">
               <h4 class="mb-4">Contacto</h4>
               <p><i class="fas fa-envelope me-2"></i> contacto@creciendoconpalabras.com</p>
               <p><i class="fas fa-phone me-2"></i> (+503) 6537-4634</p>
             </div>
+            
+            <!-- Redes sociales -->
             <div class="col-md-4 mb-4">
               <h4 class="mb-4">Síguenos</h4>
               <div class="social-icons">
@@ -183,12 +271,14 @@
               </div>
             </div>
           </div>
+          
+          <!-- Línea divisoria -->
           <hr class="my-4 bg-light">
+          
+          <!-- Derechos de autor -->
           <div class="text-center">
             <p class="mb-0">© 2025 Creciendo con palabras. Todos los derechos reservados.</p>
           </div>
         </div>
-      </footer>
-
-</body>
+    </footer>
 </html>
