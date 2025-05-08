@@ -13,128 +13,258 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Estilos CSS personalizados -->
-    <style>   
-      /* Variables CSS */
-      :root {
-        --dark-color: #4ec1d5;
-        --primary-color: #4ec1d5;
-      }
-
-      /* Estilos para encabezados */
-      h1, h2, h3, h4 {
-       font-family: 'Montserrat', sans-serif;
-       font-weight: 700;
-       margin-left: 32px;
-       margin-right: 32px;
-       margin-top: 15px;
-      }
-
-      /* Estilos para listas y párrafos */
-      ul, p {
-        margin-left: 32px;
-        margin-right: 32px;
-        margin-top: 15px;
-      }
-
-      /* Estilos para la barra de navegación */
-      .navbar-brand {
-        font-weight: 700;
-        color: var(--primary-color);
-      }
-
-      /* Estilos para la sección Hero */
-      .hero {
-        background-color: #58c0d2;
-        color: white;
-        padding: 8rem 2rem 4rem;
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-
-      /* Estilos para el pie de página */
-      footer {
-        background-color: var(--dark-color);
-        color: #060606;
-        padding: 3rem 0;
-        margin-top: 5rem;
-      }
-
-      /* Estilos generales del cuerpo */
-      body {
-        font-size: 15px;     
-        font-family: Sans-serif;
-        justify-content: center;
-        color:#060606;
-        line-height: 1.6;
-      }
-
-      /* Estilos para las secciones de contenido */
-      section {
-        margin-left: 32px;
-        margin-right: 32px;
-        margin-top: 20px;
-        margin-bottom: 25px;
-      }
-      
-      /* Estilos para el juego del ahorcado */
-      #juego-ahorcado {
-        margin: 20px 32px;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-      }
-      
-      #palabra {
-        font-size: 2rem;
-        letter-spacing: 10px;
-        margin: 20px 0;
-      }
-      
-      #letras {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        margin: 20px 0;
-      }
-      
-      #letras button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-      }
-      
-      #mensaje {
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin: 20px 0;
-        min-height: 30px;
-      }
-      
-      #intentos {
-        margin: 10px 0;
-      }
+    <style>
+        /* Variables CSS para colores principales */
+        :root {
+            --primary-color: #4ec1d5;  /* Color primario azul claro */
+            --secondary-color: #112f35; /* Color secundario azul oscuro */
+            --accent-color: #e84e4e;   /* Color de acento rojo */
+            --light-color: #f8f9fa;    /* Color claro para fondos */
+            --dark-color: #343a40;     /* Color oscuro para texto */
+        }
+        
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        /* Barra de navegación */
+        .navbar {
+            background-color: rgb(227, 234, 240);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark-color) !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Sección Hero (cabecera principal) */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #010404;
+            padding: 6rem 0;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow: 3px 5px 7px rgba(20, 16, 16, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Estilos para las secciones de contenido */
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            max-width: 1200px;
+            transition: all 0.3s ease; /* Transición suave para efectos hover */
+        }
+        
+        /* Efecto hover para las secciones */
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Estilos para encabezados */
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Subrayado decorativo para encabezados */
+        h1:after, h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        /* Estilos para listas */
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Menú de enlaces internos */
+        .menu-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+            padding: 0;
+        }
+        
+        .menu-links li {
+            margin: 0.5rem;
+            list-style: none;
+        }
+        
+        .menu-links a {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .menu-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Pie de página */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        footer h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--light-color);
+            text-decoration: underline;
+        }
+        
+        /* Iconos sociales en el footer */
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        
+        /* Estilos para botones */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        /* Sección del juego del ahorcado */
+        #juego-ahorcado {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        #palabra {
+            font-size: 2.5rem;
+            letter-spacing: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Teclado del juego */
+        #letras button {
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+            margin: 5px;
+            border-radius: 50% !important;
+        }
+        
+        /* Mensajes del juego */
+        #mensaje {
+            font-size: 1.3rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        /* Barra de navegación pegajosa */
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+        }
+        
+        /* Tarjetas en sección de ventajas */
+        .card-title {
+            color: var(--secondary-color);
+        }
+        
+        .card-title i {
+            color: var(--primary-color);
+        }
     </style>
 </head>
 
 <body>
-    <!-- Barra de navegación -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">   
           <a class="navbar-brand" href="#">
             <i class="fas fa-graduation-cap me-2"></i>Creciendo con palabras
           </a>
           
-          <!-- Botón para menú en móviles -->
+          <!-- Botón para menú en dispositivos móviles -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Elementos del menú -->
+          <!-- Elementos del menú de navegación -->
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
@@ -154,28 +284,25 @@
     <!-- Sección Hero (cabecera principal) -->
     <section class="hero">
         <div class="container text-center">
-          <h1 class="display-4 mb-4">Creciendo con palabras</h1>
-          <p class="lead mb-5">Encuentra la importancia de los idiomas</p>
-          <div class="search-box mx-auto" style="max-width: 600px;">
-            <i class="fas fa-search"></i>
-          </div>
+            <h1 class="display-4 mb-4">Aprende idiomas de forma divertida</h1>
+            <p class="lead mb-5">Descubre el fascinante mundo de los idiomas y expande tus horizontes</p>
+            <div class="d-flex justify-content-center">
+                <a href="#inicio" class="btn btn-light btn-lg mx-2">Explorar</a>
+                <a href="#juego-ahorcado" class="btn btn-outline-light btn-lg mx-2">Jugar ahora</a>
+            </div>
         </div>
     </section>
 
-    <!-- Introducción -->
-    <h4>¿Qué significa la palabra idioma?</h4>
-    <p>Es una lengua de un pueblo o nación.</p>
-
     <!-- Menú de navegación interno -->
-    <ul>
+    <ul class="menu-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#¿Quesonlosidiomas?">¿Qué son los idiomas?</a></li>
         <li><a href="#Tiposdeidiomas">Tipos de idiomas</a></li>
-        <li><a href="#Diferencia entre idioma y lengua">Diferencia entre idioma y lengua</a></li>
+        <li><a href="#Diferencia entre idioma y lengua">Idioma vs Lengua</a></li>
         <li><a href="#Importancia">Importancia</a></li>
         <li><a href="#Ventajas">Ventajas</a></li>
         <li><a href="#juego-ahorcado">Juego de Ahorcado</a></li>
-    </ul> 
+    </ul>
     
     <!-- Sección Inicio -->
     <section id="inicio">
@@ -185,8 +312,11 @@
 
     <!-- Sección ¿Qué son los idiomas? -->
     <section id="¿Que son los idiomas?">
+        <h2>¿Qué significa la palabra idioma?</h2>
+        <p>Es una lengua de un pueblo o nación.</p>
+        
         <h2>¿Qué son los idiomas?</h2>
-        <p>Los idiomas son sistemas de comunicación que utilizan los seres humanos para expresar ideas, pasamientos y emociones. Existen miles de lenguas en el mundo, como el español, ingles, francés, chino, entre otros. Los idiomas reflejan de algún modo su historia cultural. Es decir, esto permite la comunicación y conocimientos de otras culturas porque a través del lenguaje, las sociedades expresan su identidad y se construyen historias. .Además, aprender idiomas mejora la memoria, la concentración y abre mucha oportunidades académicas y laborales. El idioma es un pilar fundamental de la humanidades.</p>
+        <p>Los idiomas son sistemas de comunicación que utilizan los seres humanos para expresar ideas, pasamientos y emociones. Existen miles de lenguas en el mundo, como el español, ingles, francés, chino, entre otros. Los idiomas reflejan de algún modo su historia cultural. Es decir, esto permite la comunicación y conocimientos de otras culturas porque a través del lenguaje, las sociedades expresan su identidad y se construyen historias. Además, aprender idiomas mejora la memoria, la concentración y abre mucha oportunidades académicas y laborales. El idioma es un pilar fundamental de la humanidades.</p>
     </section>
 
     <!-- Sección Tipos de idiomas -->
@@ -199,6 +329,7 @@
             <li><strong>Lenguas indígenas:</strong> el náhuatl, quechua propias del pueblo originarios.</li>
         </ul>
         <p>Existen numerosos idiomas en el mundo, y cada uno posee sus propias características fonéticas, gramaticales y léxicas, lo que enriquece la diversidad y el entendimiento intercultural.</p>
+        
         <h4><strong>Algunos de ellos son:</strong></h4>
         <ul>
             <li>Español (castellano y latinoamericano)</li>
@@ -221,13 +352,13 @@
         <ul>
             <h6>Idioma</h6>
             <li>Lengua de un pueblo o nación, o común a varios.</li>
-            <li>Es una variante especifica de lengua , formalmente conocida.</li>
+            <li>Es una variante especifica de lengua, formalmente conocida.</li>
         </ul>
 
         <ul>
             <h6>Lengua</h6>
             <li>Puede incluir varias formas y dialectos.</li>
-            <li>Sistemas de signos fónicos o gráficos con el que se comunica los miembros de una comunidad humana </li>
+            <li>Sistemas de signos fónicos o gráficos con el que se comunica los miembros de una comunidad humana</li>
             <li>Sistema de comunicación verbal propio de una comunidad humana y que cuenta generalmente con escritura.</li>
         </ul>
     </section>
@@ -241,48 +372,60 @@
         </ul>  
 
         <ul>
-            <li>Evolución histórica:Los idiomas cambian a medida pasa el tiempo y tenemos que adaptarnos poco a poco a las nuevas realidades sociales y tecnológicas. </li>
+            <li>Evolución histórica: Los idiomas cambian a medida pasa el tiempo y tenemos que adaptarnos poco a poco a las nuevas realidades sociales y tecnológicas.</li>
         </ul>
 
         <ul>
-            <li>Diversidad linguistica:En el mundo existen mas de 7,000 idiomas, cada idioma con significados y sonidos únicos.</li>
+            <li>Diversidad linguistica: En el mundo existen mas de 7,000 idiomas, cada idioma con significados y sonidos únicos.</li>
         </ul>
 
         <ul>
-            <li>Perservacion del conocimento:Através de la escritura y la oralidad, los idiomas permiten que las nuevas generaciones aprendan.</li>
+            <li>Perservacion del conocimento: A través de la escritura y la oralidad, los idiomas permiten que las nuevas generaciones aprendan.</li>
         </ul>
     </section>
 
     <!-- Sección Ventajas -->
     <section id="Ventajas">
-        <h2>Ventajas</h2>
-        <ol>
-            <li>Desarrollo cognitivo:</li>
-            <ul>
-                <li>Aprender un idioma ejercita el cerebro y mejora la memoria, la atención y la concentración.</li>
-                <li>Desarrolla el pensamiento crítico y la creatividad.</li>
-                <li>Mejora la capacidad de resolver problemas.</li>
-            </ul>
-  
-            <li>Interacción social </li>
-            <ul>
-                <li>Permite relacionarse con personas de otros países.</li>
-                <li>Facilita la interacción con personas que hablan otro idioma.</li>
-                <li>Muestra respeto por la cultura y experiencia de otras personas.</li>
-            </ul>
-   
-            <li>Oportunidades laborales</li>
-            <ul>
-                <li>Permite vivir, trabajar o estudiar en el extranjero.</li>
-                <li>Puede impulsar la carrera.</li>
-            </ul>
-        
-            <li>Preservación de la cultura</li>
-            <ul>
-                <li>Ayuda a preservar la memoria y desarrollar las culturas.</li>
-                <li>Embellece la realidad y es una forma de aglutinar el pensamiento y el significado.</li>
-            </ul>
-        </ol>
+        <h2><i class="fas fa-star me-2"></i> Ventajas</h2>
+        <div class="row">
+            <!-- Tarjeta 1: Desarrollo cognitivo -->
+            <div class="col-md-6 mb-4">
+                <h5 class="card-title"><i class="fas fa-brain me-2"></i> Desarrollo cognitivo</h5>
+                <ul>
+                    <li>Aprender un idioma ejercita el cerebro y mejora la memoria, la atención y la concentración.</li>
+                    <li>Desarrolla el pensamiento crítico y la creatividad.</li>
+                    <li>Mejora la capacidad de resolver problemas.</li>
+                </ul>
+            </div>
+                           
+            <!-- Tarjeta 2: Interacción social -->
+            <div class="col-md-6 mb-4">
+                <h5 class="card-title"><i class="fas fa-users me-2"></i> Interacción social</h5>
+                <ul>
+                    <li>Permite relacionarse con personas de otros países.</li>
+                    <li>Facilita la interacción con personas que hablan otro idioma.</li>
+                    <li>Muestra respeto por la cultura y experiencia de otras personas.</li>
+                </ul>
+            </div>
+                
+            <!-- Tarjeta 3: Oportunidades laborales -->
+            <div class="col-md-6 mb-4">
+                <h5 class="card-title"><i class="fas fa-briefcase me-2"></i> Oportunidades laborales</h5>
+                <ul>
+                    <li>Permite vivir, trabajar o estudiar en el extranjero.</li>
+                    <li>Puede impulsar la carrera.</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 4: Preservación cultural -->
+            <div class="col-md-6 mb-4">
+                <h5 class="card-title"><i class="fas fa-landmark me-2"></i> Preservación de la cultura</h5>
+                <ul>
+                    <li>Ayuda a preservar la memoria y desarrollar las culturas.</li>
+                    <li>Embellece la realidad y es una forma de aglutinar el pensamiento y el significado.</li>
+                </ul>
+            </div>
+        </div>
     </section>
     
     <!-- Sección del Juego del Ahorcado -->
@@ -301,35 +444,49 @@
     <!-- Pie de página -->
     <footer>
         <div class="container">
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <h4 class="mb-4">Creciendo con palabras</h4>
-              <p>Tu proximo gran paso puede empezar con una palabra en otro idioma</p>
+            <div class="row">
+                <!-- Columna 1: Información general -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="mb-4">Creciendo con palabras</h4>
+                    <p>Tu proximo gran paso puede empezar con una palabra en otro idioma</p>
+                </div>
+                
+                <!-- Columna 2: Información de contacto -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="mb-4">Contacto</h4>
+                    <p><i class="fas fa-envelope me-2"></i> contacto@creciendoconpalabras.com</p>
+                    <p><i class="fas fa-phone me-2"></i> (+503) 6537-4634</p>
+                </div>
+                
+                <!-- Columna 3: Redes sociales -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="mb-4">Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 mb-4">
-              <h4 class="mb-4">Contacto</h4>
-              <p><i class="fas fa-envelope me-2"></i> contacto@creciendoconpalabras.com</p>
-              <p><i class="fas fa-phone me-2"></i> (+503) 6537-4634</p>
+            
+            <!-- Línea divisoria -->
+            <hr class="my-4 bg-light">
+            
+            <!-- Derechos de autor -->
+            <div class="text-center">
+                <p class="mb-0">© 2025 Creciendo con palabras. Todos los derechos reservados.</p>
             </div>
-            <div class="col-md-4 mb-4">
-              <h4 class="mb-4">Síguenos</h4>
-              <div class="social-icons">
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-            </div>
-          </div>
-          <hr class="my-4 bg-light">
-          <div class="text-center">
-            <p class="mb-0">© 2025 Creciendo con palabras. Todos los derechos reservados.</p>
-          </div>
         </div>
     </footer>
 
     <!-- Script del juego del ahorcado -->
     <script>
+        /**
+         * Juego del Ahorcado
+         * Permite adivinar palabras en inglés relacionadas con útiles escolares
+         */
+        
         // Variables del juego
         const palabras = ["pencil", "eraser", "scissors", "ruler", "notebook", "pen", "book"];
         let palabra = "";
@@ -382,6 +539,11 @@
             botones.forEach(b => b.disabled = false);
         }
         
+        /**
+         * Procesa el intento de adivinar una letra
+         * @param {string} letra - Letra seleccionada
+         * @param {HTMLElement} button - Botón de la letra
+         */
         function adivinarLetra(letra, button) {
             button.disabled = true;
             let acierto = false;
