@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traductor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+    select, input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 80%;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #resultado {
+      min-height: 20px;
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Traductor Web</h2>
+
+    <label for="origen">Idioma de origen:</label>
+    <select id="origen">
+      <option value="es">Español</option>
+      <option value="en">Inglés</option>
+      <option value="fr">Francés</option>
+    </select>
+
+    <label for="destino">Idioma de destino:</label>
+    <select id="destino">
+      <option value="en">Inglés</option>
+      <option value="es">Español</option>
+      <option value="fr">Francés</option>
+    </select>
+
+    <input type="text" id="texto" placeholder="Escribe una palabra..." />
+    <button onclick="traducir()">Traducir</button>
+
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    // Diccionario con traducciones
+    const diccionario = {
+      es: {
+        en: {
+          "hola": "hello",
+          "adiós": "goodbye",
+          "perro": "dog",
+          "gato": "cat",
+          "gracias": "thank you",
+          "mundo": "world"
+        },
+        fr: {
+          "hola": "bonjour",
+          "adiós": "au revoir",
+          "perro": "chien",
+          "gato": "chat",
+          "gracias": "merci",
+          "mundo": "monde"
+        }
+      },
+      en: {
+        es: {
+          "hello": "hola",
+          "goodbye": "adiós",
+          "dog": "perro",
+          "cat": "gato",
+          "thank you": "gracias",
+          "world": "mundo"
+        },
+        fr: {
+          "hello": "bonjour",
+          "goodbye": "au revoir",
+          "dog": "chien",
+          "cat": "chat",
+          "thank you": "merci",
+          "world": "monde"
+        }
+      },
+      fr: {
+        es: {
+          "bonjour": "hola",
+          "au revoir": "adiós",
+          "chien": "perro",
+          "chat": "gato",
+          "merci": "gracias",
+          "monde": "mundo"
+        },
+        en: {
+          "bonjour": "hello",
+          "au revoir": "goodbye",
+          "chien": "dog",
+          "chat": "cat",
+          "merci": "thank you",
+          "monde": "world"
+        }
+      }
+    };
+
+    // Función para traducir
+    function traducir() {
+      const texto = document.getElementById('texto').value.trim().toLowerCase();
+      const origen = document.getElementById('origen').value;
+      const destino = document.getElementById('destino').value;
+
+      // Validar que se haya ingresado texto
+      if (!texto) {
+        document.getElementById('resultado').innerText = 'Por favor, escribe una palabra para traducir.';
+        return;
+      }
+
+      // Validar que no se seleccione el mismo idioma
+      if (origen === destino) {
+        document.getElementById('resultado').innerText = 'Por favor, selecciona idiomas diferentes para origen y destino.';
+        return;
+      }
+
+      // Buscar la traducción
+      const traduccion = diccionario[origen]?.[destino]?.[texto];
+
+      // Mostrar la traducción
+      if (traduccion) {
+        document.getElementById('resultado').innerText = `Traducción: ${traduccion}`;
+      } else {
+        document.getElementById('resultado').innerText = 'Lo siento, no tengo una traducción para esa palabra.';
+      }
+    }
+
+    // Permitir traducir presionando Enter
+    document.getElementById('texto').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        traducir();
+      }
+    });
+  </script>
+
+</body>
+</html>
